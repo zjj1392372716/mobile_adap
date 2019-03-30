@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <title></title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <div class="box">
+      我是盒子
+    </div>
+    <div class="test">
+      我是盒子
+    </div>
+    <script type="text/javascript">
+      // iphone5 1rem => 16px
+      // iphone6/7/8 1rem => 18.75px
+      // 适配方案
+      setRem();
+      window.addEventListener("orientationchange", setRem);
+      window.addEventListener("resize", setRem);
+
+      function setRem() {
+        let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth; // 获取文档宽度
+        let htmlDom = document.getElementsByTagName('html')[0]; // 获取htmldom
+        // 如果页面宽度太大了的话，保持750
+        if (htmlwidth > 750) {
+          htmlwidth = 750
+        }
+        htmlDom.style.fontSize = htmlwidth / 20 + 'px';
+        console.log(htmlwidth / 20)
+      }
+    </script>
+  </body>
+</html>
